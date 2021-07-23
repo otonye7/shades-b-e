@@ -35,4 +35,4 @@ const glassesSchema = new Schema({
     }
 }, { timestamps: true })
 
-module.exports = glasses = mongoose.model("Glasses", glassesSchema)
+module.exports = Glasses = mongoose.model("Glasses", glassesSchema)

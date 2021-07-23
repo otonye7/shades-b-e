@@ -7,7 +7,7 @@ const create = async (req, res) => {
         let files = req.files
         let glasses = new Glasses(fields);
         glasses.postedBy = req.user._id
-
+        console.log(fields)
         if (files.image) {
             glasses.image.data = fs.readFileSync(files.image.path)
             glasses.image.contentType = files.image.type

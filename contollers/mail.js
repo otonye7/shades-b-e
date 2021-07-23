@@ -1,4 +1,4 @@
-const Mails = require('../models/questions');
+const Mail = require('../models/mail');
 
 const create = async (req, res) => {
     const { email } = req.body;
@@ -7,7 +7,7 @@ const create = async (req, res) => {
         res.status(400).send("Question required")
     }
 
-    const newmails = new Mails(req.body)
+    const newmails = new Mail(req.body)
 
 
     try {
