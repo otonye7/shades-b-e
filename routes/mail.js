@@ -1,5 +1,6 @@
-import express from 'express';
-import { create } from '../contollers/mail';
+const express = require('express');
+
+const { create } = require('../contollers/mail');
 
 
 

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
@@ -12,4 +12,4 @@ const MailSchema = new Schema({
     }
 }, { timestamps: true })
 
-export default mongoose.model("mail", MailSchema)
+module.exports = Mail = mongoose.model("mail", MailSchema)

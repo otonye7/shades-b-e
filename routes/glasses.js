@@ -1,7 +1,7 @@
-import express from 'express';
-import { create, glass, image, remove, read } from '../contollers/glasses';
-import formidable from 'express-formidable';
-import { requireSignin, glassesOwner } from '../middlewares';
+const express = require('express');
+const { create, glass, image, remove, read } = require('../contollers/glasses');
+const formidable = require('express-formidable');
+const { requireSignin, glassesOwner } = require('../middlewares');
 
 const router = express.Router();
 

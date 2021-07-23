@@ -1,5 +1,6 @@
-import express from 'express';
-import { create, getquestions } from '../contollers/questions';
+const express = require('express');
+
+const { create, getquestions } = require('../contollers/questions');
 
 
 const router = express.Router();

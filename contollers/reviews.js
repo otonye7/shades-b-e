@@ -1,6 +1,6 @@
-import Reviews from '../models/reviews';
+const Reviews = require('../models/reviews');
 
-export const create = async (req, res) => {
+const create = async (req, res) => {
     const { email, title, name, reviews } = req.body;
 
     if (!email) {
@@ -35,7 +35,12 @@ export const create = async (req, res) => {
 
 }
 
-export const getreviews = async (req, res) => {
+const getreviews = async (req, res) => {
     let allReviews = await Reviews.find({})
     res.json(allReviews)
+}
+
+module.exports = {
+    create,
+    getreviews
 }

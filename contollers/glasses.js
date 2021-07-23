@@ -1,7 +1,7 @@
-import Glasses from '../models/glasses';
-import fs from 'fs';
+const Glasses = require('../models/glasses');
+const fs = require('fs');
 
-export const create = async (req, res) => {
+const create = async (req, res) => {
     try {
         let fields = req.fields
         let files = req.files
@@ -25,13 +25,13 @@ export const create = async (req, res) => {
     }
 }
 
-export const glass = async (req, res) => {
+const glass = async (req, res) => {
     let all = await Glasses.find({})
         .limit(50).select('-image.data').populate("postedBy", '_id').exec()
     res.json(all)
 }
 
-export const image = async (req, res) => {
+const image = async (req, res) => {
     let glass = await Glasses.findById(req.params.glassId).exec()
     if (glass && glass.image && glass.image.data !== null) {
         res.set('Content-Type', glass.image.contentType)
@@ -40,15 +40,22 @@ export const image = async (req, res) => {
 }
 
 
-export const remove = async (req, res) => {
+const remove = async (req, res) => {
     let remove = await Glasses.findByIdAndDelete(req.params.glassId).exec()
     res.json({ ok: true })
 }
 
-export const read = async (req, res) => {
+const read = async (req, res) => {
     let glasses = await Glasses.findById(req.params.glassId).select('-image.data').exec()
     console.log(glasses)
     res.json(glasses)
 }
 
 
+module.exports = {
+    create,
+    read,
+    remove,
+    glass,
+    image
+}

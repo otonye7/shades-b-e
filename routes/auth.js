@@ -1,8 +1,8 @@
-import express from 'express';
+const express = require('express');
 
 const router = express.Router();
 
-import {signup, login} from '../contollers/auth';
+const { signup, login } = require('../contollers/auth');
 
 router.post('/signup', signup)
 router.post('/login', login)

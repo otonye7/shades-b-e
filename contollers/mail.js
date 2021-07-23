@@ -1,6 +1,6 @@
-import Mails from '../models/questions';
+const Mails = require('../models/questions');
 
-export const create = async (req, res) => {
+const create = async (req, res) => {
     const { email } = req.body;
 
     if (!email) {
@@ -21,4 +21,8 @@ export const create = async (req, res) => {
         res.status(400).send('Cant subscribe')
     }
 
+}
+
+module.exports = {
+    create
 }

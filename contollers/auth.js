@@ -1,7 +1,7 @@
-import User from '../models/user';
-import jwt from 'jsonwebtoken';
+const User = require('../models/user');
+const jwt = require('jsonwebtoken');
 
-export const signup = async (req, res) => {
+const signup = async (req, res) => {
     const { name, lastName, email, password } = req.body;
 
     if (!name) {
@@ -35,7 +35,7 @@ export const signup = async (req, res) => {
     }
 }
 
-export const login = async (req, res) => {
+const login = async (req, res) => {
     const { email, password } = req.body
     try {
         let user = await User.findOne({ email }).exec()
@@ -64,4 +64,9 @@ export const login = async (req, res) => {
         console.log(err)
         return res.status(400).send('Sign in failed')
     }
+}
+
+module.exports = {
+    signup,
+    login
 }

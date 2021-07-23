@@ -1,6 +1,6 @@
-import Questions from '../models/questions';
+const Questions = require('../models/questions');
 
-export const create = async (req, res) => {
+const create = async (req, res) => {
     const { question } = req.body;
 
     if (!question) {
@@ -23,7 +23,12 @@ export const create = async (req, res) => {
 
 }
 
-export const getquestions = async (req, res) => {
+const getquestions = async (req, res) => {
     let allQuestions = await Questions.find({})
     res.json(allQuestions)
+}
+
+module.exports = {
+    create,
+    getquestions
 }

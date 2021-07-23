@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
-const {Schema} = mongoose;
-import bcrypt from 'bcrypt';
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
+const bcrypt = require('bcrypt')
 
 const userSchema = new Schema({
     name: {
@@ -25,15 +25,15 @@ const userSchema = new Schema({
         min: 6,
         max: 100
     }
-}, {timestamps: true})
+}, { timestamps: true })
 
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function (next) {
     let user = this;
 
 
-    if(user.isModified('password')) {
-        return bcrypt.hash(user.password, 12, function(err, hash) {
-            if(err) {
+    if (user.isModified('password')) {
+        return bcrypt.hash(user.password, 12, function (err, hash) {
+            if (err) {
                 console.log('Bcrypt has error', err);
                 return next(err)
             }
@@ -45,7 +45,7 @@ userSchema.pre('save', function(next) {
     }
 })
 
-userSchema.methods.comparePassword = function(password, next) {
+userSchema.methods.comparePassword = function (password, next) {
     bcrypt.compare(password, this.password, function (err, match) {
         if (err) {
             console.log(err);
@@ -57,4 +57,4 @@ userSchema.methods.comparePassword = function(password, next) {
 }
 
 
-export default mongoose.model('User', userSchema);
+module.exports = user = mongoose.model('User', userSchema);

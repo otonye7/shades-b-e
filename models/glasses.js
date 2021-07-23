@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-const {Schema} = mongoose;
-const {ObjectId} = mongoose.Schema;
+const { Schema } = mongoose;
+const { ObjectId } = mongoose.Schema;
 
 const glassesSchema = new Schema({
     title: {
@@ -22,8 +22,8 @@ const glassesSchema = new Schema({
         required: "Description is required"
     },
     quantity: {
-       type: Number,
-       default: 0
+        type: Number,
+        default: 0
     },
     image: {
         data: Buffer,
@@ -33,6 +33,6 @@ const glassesSchema = new Schema({
         type: ObjectId,
         ref: "User"
     }
-}, {timestamps: true})
+}, { timestamps: true })
 
-export default mongoose.model("Glasses", glassesSchema)
+module.exports = glasses = mongoose.model("Glasses", glassesSchema)
