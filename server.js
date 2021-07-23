@@ -7,9 +7,9 @@ const morgan = require("morgan");
 
 const app = express();
 
-const uri = "mongodb+srv://otonye7:collinson7@sohoquette.g6cxc.mongodb.net/test?retryWrites=true&w=majority"
+// const uri = "mongodb+srv://otonye7:collinson7@sohoquette.g6cxc.mongodb.net/test?retryWrites=true&w=majority"
 
-mongoose.connect(process.env.DATABASE, uri, {
+mongoose.connect(process.env.DATABASE, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
